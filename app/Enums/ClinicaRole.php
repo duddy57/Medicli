@@ -35,11 +35,17 @@ enum ClinicaRole: string
                 'member:remove',
                 'invitation:create',
                 'invitation:cancel',
+                'employee:add',
+                'employee:update',
+                'employee:remove',
             ],
             self::Admin => [
                 'clinica:update',
                 'invitation:create',
                 'invitation:cancel',
+                'employee:add',
+                'employee:update',
+                'employee:remove',
             ],
             self::Member => [],
         };

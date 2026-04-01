@@ -1,5 +1,11 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid, Stethoscope } from 'lucide-react';
+import {
+    BookOpen,
+    FolderGit2,
+    LayoutGrid,
+    Stethoscope,
+    Users,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -29,6 +35,10 @@ export function AppSidebar() {
         ? specialtiesIndex(currentClinica.slug)
         : '#';
 
+    const employeesUrl = currentClinica
+        ? `/${currentClinica.slug}/employees`
+        : '#';
+
     const mainNavItems: NavItem[] = [
         {
             title: 'Dashboard',
@@ -39,6 +49,11 @@ export function AppSidebar() {
             title: 'Especialidades',
             href: specialtiesUrl,
             icon: Stethoscope,
+        },
+        {
+            title: 'Funcionários',
+            href: employeesUrl,
+            icon: Users,
         },
     ];
 

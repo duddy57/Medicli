@@ -94,6 +94,16 @@ class Clinica extends Model
     }
 
     /**
+     * Get all employees for this Clinica.
+     *
+     * @return HasMany<Employee, $this>
+     */
+    public function employees(): HasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
