@@ -7,6 +7,7 @@ use App\Http\Controllers\Clinicas\ClinicaInvitationController;
 use App\Http\Controllers\Clinicas\EmployeeController;
 use App\Http\Controllers\Clinicas\ServiceController;
 use App\Http\Controllers\Clinicas\SpecialtyController;
+use App\Http\Controllers\Clinicas\PatientController;
 use App\Http\Middleware\EnsureClinicaMembership;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -34,11 +35,11 @@ Route::prefix('{current_clinica}')
             Route::delete('{employee}', [EmployeeController::class, 'destroy'])->name('destroy');
         });
 
-        Route::prefix('services')->name('services.')->group(function (): void {
-            Route::get('/', [ServiceController::class, 'index'])->name('index');
-            Route::post('/', [ServiceController::class, 'store'])->name('store');
-            Route::patch('{service}', [ServiceController::class, 'update'])->name('update');
-            Route::delete('{service}', [ServiceController::class, 'destroy'])->name('destroy');
+        Route::prefix('patients')->name('patients.')->group(function (): void {
+            Route::get('/', [PatientController::class, 'index'])->name('index');
+            Route::post('/', [PatientController::class, 'store'])->name('store');
+            Route::patch('{patient}', [PatientController::class, 'update'])->name('update');
+            Route::delete('{patient}', [PatientController::class, 'destroy'])->name('destroy');
         });
 
         Route::prefix('appointments')->name('appointments.')->group(function (): void {

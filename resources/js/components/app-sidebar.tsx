@@ -8,6 +8,7 @@ import {
     Users,
     Wrench,
 } from 'lucide-react';
+
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -22,6 +23,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+
 import { dashboard } from '@/routes';
 import { index as specialtiesIndex } from '@/routes/specialties';
 import type { NavItem } from '@/types';
@@ -49,6 +51,10 @@ export function AppSidebar() {
         ? `/${currentClinica.slug}/appointments`
         : '#';
 
+    const patientsUrl = currentClinica
+        ? `/${currentClinica.slug}/patients`
+        : '#';
+
     const mainNavItems: NavItem[] = [
         {
             title: 'Dashboard',
@@ -73,6 +79,11 @@ export function AppSidebar() {
         {
             title: 'Funcionários',
             href: employeesUrl,
+            icon: Users,
+        },
+        {
+            title: 'Pacientes',
+            href: patientsUrl,
             icon: Users,
         },
     ];
@@ -102,6 +113,7 @@ export function AppSidebar() {
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
+
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <ClinicaSwitcher />
