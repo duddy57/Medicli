@@ -113,6 +113,11 @@ class Clinica extends Model
         return $this->hasMany(Service::class);
     }
 
+    public function patients(): HasMany
+    {
+        return $this->hasMany(Patient::class);
+    }
+
     /**
      * Get all appointments for this Clinica.
      *
